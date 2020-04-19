@@ -1,4 +1,4 @@
-# CeneoScraper
+﻿# CeneoScraper
 ## Etap 1 - analiza struktury opinii w serwisie [Ceneo.pl](https://www.ceneo.pl/)
 |Składowa                |Selektor                                 |Nazwa zmiennej|
 |------------------------|-----------------------------------------|--------------|
@@ -14,7 +14,6 @@
 |nieprzydatna            |button.vote-no > span                    |useless       |
 |data wystawienia opinii |span.review-time:first-child["datetime"] |opinion_date  |
 |data zakupu             |span.review-time:nth-child(2)["datetime"]|purchase_date |
-
 ## Etap 2 - pobranie składniowych pojedynczej opinii
 - pobranie kodu jednej strony z opiniami o konkretnym produkcie
 - wyciągnięcie z kodu strony fragmentów odpowiadających poszczególnym opiniom
@@ -27,3 +26,8 @@
 - transformacja i wyczyszczenie danych 
 - refaktoring kodu 
 - parametryzacja 
+## Etap 5 (Pandas, Matplotlib)
+- wczytanie opinii do ramki danych 
+- policzenie podstawowaych statystyk 
+- narysowanie wykresów funkcji 
+## Etap 6 interfejs webowy dla scrapera (flask)
