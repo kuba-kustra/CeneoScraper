@@ -46,23 +46,24 @@ while url:
     opinions = page_dom.select("li.js_product-review ")
 
     #dla wszystkich  opinii z danej strony wydobycie jej składowych 
-    for opinion in opinions: 
+    for opinion in opinions:
         features = {key:extract_feature(opinion, *args)
                     for key, args in selectors.items()}
         features["opinion_id"] = int(opinion["data-entry-id"])
         features["useful"] = int(features["useful"])
-        features["useless"] = int(features["useless"])
-        features["stars"] = float(features["stars"].split('/')[0].replace(',','.'))
-        features["content"] = features["content"].replace('\n',  replace('\r', '')
+        features["useless"] = int(features["useless"])   
+        features["stars"] =  float(features["stars"].split("/")[0].replace(",", "."))
+        features["content"] = features["content"].replace("\n", " ").replace("\r", " ")
         try:
-            features["pros"] = features["pros"].replace('\n', ', ').replace('\r', ', ')
+            features["pros"] = features["pros"].replace("\n", ", ").replace("\r", ", ")
         except AttributeError:
-            pass 
+            pass
         try:
-            features["cons"] = features["cons"].replace('\n', ', ').replace('\r', ', ')
+            features["cons"] = features["cons"].replace("\n", ", ").replace("\r", ", ")
         except AttributeError:
-            pass 
+            pass    
         all_opinions.append(features)
+
     try:
         url = url_prefix+page_dom.select("a.pagination__next").pop()["href"]
     except IndexError:
