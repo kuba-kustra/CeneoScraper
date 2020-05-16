@@ -40,7 +40,8 @@ recommendation = opinions.recommendation.value_counts()
 fig, ax = plt.subplots()
 recommendation.plot.pie(label='', autopct="%1.1f%%", colors=["#f5c3c2",'#89cff0'])
 plt.title('<<<<Rekomendacja>>>>')
-plt.show()
+#plt.show()
+plt.savefig("figures_png/" +product_id+ "_pie.png")
 plt.close()
 
 
